@@ -2,6 +2,15 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = Schema(
 	{
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+		},
+		password: {
+			type: String,
+			default: "",
+		},
 		type: {
 			type: String,
 			enum: ["admin", "participant", "officer"],
@@ -12,10 +21,6 @@ const userSchema = Schema(
 			default: "",
 		},
 		lastName: {
-			type: String,
-			default: "",
-		},
-		email: {
 			type: String,
 			default: "",
 		},
@@ -39,6 +44,18 @@ const userSchema = Schema(
 		pin: {
 			type: Schema.Types.ObjectId,
 			ref: "Pin",
+		},
+		refreshToken: {
+			type: String,
+			default: "",
+		},
+		resetToken: {
+			type: String,
+			default: "",
+		},
+		resetTokenExpiry: {
+			type: Date,
+			default: () => new Date(),
 		},
 	},
 	{

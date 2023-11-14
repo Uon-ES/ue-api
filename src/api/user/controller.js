@@ -1,6 +1,7 @@
 const GenericRepository = require("../../repository");
 const { Pin } = require("../pin/model");
 const { User } = require("./model");
+const createEncryptedUser = require("./use_cases/createEncryptedUser");
 const validateUser = require("./validate");
 
 const repo = new GenericRepository(User);
@@ -13,7 +14,13 @@ const createUser = async (req, res) => {
 			return res.status(400).send(error.details[0].message);
 		}
 
-		const user = await repo.create(req.body);
+		const { email, password } = req.body;
+		const userExists = await repo.findByEmail(email);
+		if (userExists) {
+			return res.status(400).send("User already exists.");
+		}
+
+		const user = await createEncryptedUser(req.body, repo);
 		res.status(201).json(user);
 	} catch (err) {
 		res.status(500).send(err.message);

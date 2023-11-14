@@ -15,6 +15,14 @@ class GenericRepository {
 		return this.model.findById(id);
 	}
 
+	async findByEmail(email) {
+		return this.model.findOne({ email });
+	}
+
+	async findByRefreshToken(refreshToken) {
+		return this.model.findOne({ refreshToken });
+	}
+
 	async updateById(id, updatedDoc) {
 		return this.model.findByIdAndUpdate(id, updatedDoc, { new: true });
 	}

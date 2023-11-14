@@ -1,10 +1,11 @@
 const Joi = require("joi");
 
 const userSchema = Joi.object({
+	email: Joi.string().required(),
+	password: Joi.string().optional(),
 	type: Joi.string().valid("admin", "participant", "officer"),
 	firstName: Joi.string().optional(),
 	lastName: Joi.string().optional(),
-	email: Joi.string().optional(),
 	phoneNumber: Joi.string().optional(),
 	status: Joi.string().valid("", "Enabled", "Disabled"),
 	deviceType: Joi.string().optional(),
