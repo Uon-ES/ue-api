@@ -20,7 +20,12 @@ const createUser = async (req, res) => {
 			return res.status(400).send("User already exists.");
 		}
 
-		const user = await createEncryptedUser(req.body, repo);
+		let user;
+		if (password) {
+			user = await createEncryptedUser(req.body, repo);
+		} else {
+			user = await repo.create(req.body);
+		}
 		res.status(201).json(user);
 	} catch (err) {
 		res.status(500).send(err.message);
