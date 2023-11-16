@@ -30,8 +30,8 @@ const userSchema = Schema(
 		},
 		status: {
 			type: String,
-			enum: ["", "Enabled", "Disabled"],
-			default: "",
+			enum: ["Enabled", "Disabled"],
+			default: "Enabled",
 		},
 		deviceType: {
 			type: String,
