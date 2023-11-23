@@ -33,6 +33,11 @@ const userSchema = Schema(
 			enum: ["Assigned", "Unassigned"],
 			default: "Unassigned",
 		},
+		officerStatus: {
+			type: String,
+			enum: ["Steady", "Down"],
+			default: "Steady",
+		},
 		description: {
 			type: String,
 			default: "",
