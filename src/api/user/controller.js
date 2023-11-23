@@ -82,6 +82,18 @@ const getUserById = async (req, res) => {
 	}
 };
 
+const getTemporaryPins = async (_req, res) => {
+	try {
+		const users = await User.find().populate("pin");
+		const filteredUsers = users.filter(
+			(user) => user?.pin?.type === "Temporary"
+		);
+		res.json(filteredUsers);
+	} catch (err) {
+		res.status(500).json(err.message);
+	}
+};
+
 const updateUserById = async (req, res) => {
 	try {
 		const { id } = req.params;
@@ -123,6 +135,7 @@ module.exports = {
 	createTemporaryPin,
 	getUsers,
 	getUserById,
+	getTemporaryPins,
 	updateUserById,
 	deleteUserById,
 };
