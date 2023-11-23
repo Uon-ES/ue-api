@@ -2,14 +2,16 @@ const Joi = require("joi");
 
 const userSchema = Joi.object({
 	email: Joi.string().required(),
-	password: Joi.string().optional(),
+	password: Joi.string(),
 	type: Joi.string().valid("admin", "participant", "officer"),
-	firstName: Joi.string().optional(),
-	lastName: Joi.string().optional(),
-	phoneNumber: Joi.string().optional(),
+	firstName: Joi.string(),
+	lastName: Joi.string(),
+	phoneNumber: Joi.string(),
 	status: Joi.string().valid("", "Enabled", "Disabled"),
-	deviceType: Joi.string().optional(),
-	pinsToView: Joi.number().optional(),
+	description: Joi.string(),
+	notes: Joi.string(),
+	deviceType: Joi.string(),
+	pinsToView: Joi.number(),
 	pin: Joi.string().optional(),
 });
 

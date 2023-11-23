@@ -7,18 +7,6 @@ const pinSchema = new Schema(
 			enum: ["Temporary", "Permanent"],
 			default: "Permanent",
 		},
-		firstName: {
-			type: String,
-		},
-		lastName: {
-			type: String,
-		},
-		description: {
-			type: String,
-		},
-		notes: {
-			type: String,
-		},
 		longitude: {
 			type: Number,
 		},

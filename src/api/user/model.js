@@ -33,6 +33,14 @@ const userSchema = Schema(
 			enum: ["Enabled", "Disabled"],
 			default: "Enabled",
 		},
+		description: {
+			type: String,
+			default: "",
+		},
+		notes: {
+			type: String,
+			default: "",
+		},
 		deviceType: {
 			type: String,
 			default: "",
