@@ -2,13 +2,28 @@ const { Schema, model } = require("mongoose");
 
 const pinSchema = new Schema(
 	{
-		longitude: {
+		type: {
 			type: String,
-			required: true,
+			enum: ["Temporary", "Permanent"],
+			default: "Permanent",
+		},
+		firstName: {
+			type: String,
+		},
+		lastName: {
+			type: String,
+		},
+		description: {
+			type: String,
+		},
+		notes: {
+			type: String,
+		},
+		longitude: {
+			type: Number,
 		},
 		latitude: {
-			type: String,
-			required: true,
+			type: Number,
 		},
 		gpsCoordinates: {
 			type: String,
