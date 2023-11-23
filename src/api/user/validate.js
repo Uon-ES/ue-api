@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 const userSchema = Joi.object({
-	email: Joi.string().required(),
+	email: Joi.string(),
 	password: Joi.string(),
 	type: Joi.string().valid("admin", "participant", "officer"),
 	firstName: Joi.string(),
@@ -20,4 +20,16 @@ const validateUser = (body) => {
 	return { error };
 };
 
-module.exports = validateUser;
+const temporaryPinSchema = Joi.object({
+	firstName: Joi.string().required(),
+	lastName: Joi.string().required(),
+	description: Joi.string().required(),
+	notes: Joi.string().required(),
+});
+
+const validateTemporaryPin = (body) => {
+	const { error } = temporaryPinSchema.validate(body);
+	return { error };
+};
+
+module.exports = { validateUser, validateTemporaryPin };
