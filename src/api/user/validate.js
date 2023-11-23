@@ -7,7 +7,7 @@ const userSchema = Joi.object({
 	firstName: Joi.string(),
 	lastName: Joi.string(),
 	phoneNumber: Joi.string(),
-	status: Joi.string().valid("", "Enabled", "Disabled"),
+	status: Joi.string().valid("", "Assigned", "Unassigned"),
 	description: Joi.string(),
 	notes: Joi.string(),
 	deviceType: Joi.string(),
