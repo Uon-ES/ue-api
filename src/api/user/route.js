@@ -12,7 +12,7 @@ const router = require("express").Router();
 router.get("/", getUsers);
 router.get("/:id", getUserById);
 router.post("/", createUser);
-router.post("/temporary-pin", createTemporaryPin);
+router.post("/temporary-pins", createTemporaryPin);
 router.put("/:id", updateUserById);
 router.delete("/:id", deleteUserById);
 
