@@ -1,12 +1,13 @@
 const Joi = require("joi");
 
 const pinSchema = Joi.object({
-	type: Joi.string().valid("Temporary", "Permanent"),
 	longitude: Joi.number(),
 	latitude: Joi.number(),
 	gpsCoordinates: Joi.string(),
 	verticalAngle: Joi.number(),
 	link: Joi.string(),
+	type: Joi.string().valid("Temporary", "Permanent"),
+	user: Joi.string(),
 });
 
 const validatePin = (body) => {
