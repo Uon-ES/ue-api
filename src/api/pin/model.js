@@ -12,6 +12,10 @@ const pinSchema = new Schema(
 			enum: ["Temporary", "Permanent"],
 			default: "Permanent",
 		},
+		user: {
+			type: Schema.Types.ObjectId,
+			ref: "User",
+		},
 	},
 	{
 		timestamps: true,

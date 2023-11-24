@@ -61,10 +61,6 @@ const deleteOfficerById = async (req, res) => {
 			return res.status(404).json("Officer not found.");
 		}
 
-		if (officer?.pin) {
-			await pinRepo.remove(officer.pin);
-		}
-
 		await officerRepo.remove(id);
 		res.json(id);
 	} catch (err) {

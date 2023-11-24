@@ -8,7 +8,6 @@ const officerSchema = Joi.object({
 	deviceType: Joi.string(),
 	status: Joi.string().valid("Steady", "Down"),
 	pinsToView: Joi.array().items(Joi.string()),
-	pin: Joi.string(),
 });
 
 const validateOfficer = (body) => {

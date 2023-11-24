@@ -7,7 +7,6 @@ const adminSchema = Schema(
 		email: String,
 		password: String,
 		phoneNumber: String,
-		deviceType: String,
 		refreshToken: String,
 		resetToken: String,
 		resetTokenExpiry: {

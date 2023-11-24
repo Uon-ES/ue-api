@@ -9,10 +9,6 @@ const participantSchema = Schema(
 		description: String,
 		notes: String,
 		deviceType: String,
-		pin: {
-			type: Schema.Types.ObjectId,
-			ref: "Pin",
-		},
 	},
 	{
 		timestamps: true,

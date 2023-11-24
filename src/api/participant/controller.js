@@ -1,4 +1,3 @@
-const pinRepo = require("../pin/repository");
 const participantRepo = require("./repository");
 const { validateParticipant } = require("./validate");
 
@@ -62,10 +61,6 @@ const deleteParticipantById = async (req, res) => {
 		const participant = await participantRepo.findById(id);
 		if (!participant) {
 			return res.status(404).json("Participant not found.");
-		}
-
-		if (participant?.pin) {
-			await pinRepo.remove(participant.pin);
 		}
 
 		await participantRepo.remove(id);

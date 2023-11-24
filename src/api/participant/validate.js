@@ -8,7 +8,6 @@ const participantSchema = Joi.object({
 	description: Joi.string(),
 	notes: Joi.string(),
 	deviceType: Joi.string(),
-	pin: Joi.string(),
 });
 
 const validateParticipant = (body) => {

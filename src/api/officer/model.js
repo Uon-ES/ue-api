@@ -18,10 +18,6 @@ const officerSchema = Schema(
 				ref: "Pin",
 			},
 		],
-		pin: {
-			type: Schema.Types.ObjectId,
-			ref: "Pin",
-		},
 	},
 	{
 		timestamps: true,

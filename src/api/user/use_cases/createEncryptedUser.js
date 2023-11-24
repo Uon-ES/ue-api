@@ -1,4 +1,4 @@
-const encryptPassword = require("./encryptPassword");
+const encryptPassword = require("../../auth/use_cases/encryptPassword");
 
 const createEncryptedUser = async (body, repo) => {
 	try {
