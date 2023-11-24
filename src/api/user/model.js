@@ -33,7 +33,7 @@ const userSchema = Schema(
 		},
 		officerStatus: {
 			type: String,
-			enum: ["Steady", "Down"],
+			enum: ["", "Steady", "Down"],
 			default: "Steady",
 		},
 		description: {
