@@ -1,5 +1,3 @@
-const GenericRepository = require("../../repository");
-const { User } = require("../user/model");
 const comparePasswords = require("./use_cases/comparePasswords");
 const jwtSign = require("./use_cases/jwtSign");
 const jwtVerify = require("./use_cases/jwtVerify");
@@ -62,7 +60,7 @@ const handleLogin = async (req, res) => {
 			lastName: user.lastName,
 			email: user.email,
 			phoneNumber: user.phoneNumber,
-			phoneNumber: user.phoneNumber,
+			status: user.status,
 			createdAt: user.createdAt,
 			updatedAt: user.updatedAt,
 		};
@@ -123,6 +121,7 @@ const handleRefreshToken = async (req, res) => {
 			lastName: user.lastName,
 			email: user.email,
 			phoneNumber: user.phoneNumber,
+			status: user.status,
 			createdAt: user.createdAt,
 			updatedAt: user.updatedAt,
 			accessToken,

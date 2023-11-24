@@ -9,6 +9,11 @@ const adminSchema = Schema(
 		phoneNumber: String,
 		refreshToken: String,
 		resetToken: String,
+		status: {
+			type: String,
+			enum: ["Enabled", "Disabled"],
+			default: "Enabled",
+		},
 		resetTokenExpiry: {
 			type: Date,
 			default: () => new Date(),
