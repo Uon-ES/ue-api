@@ -20,6 +20,7 @@ app.use("/auth", require("./api/auth"));
 app.use("/users", require("./api/user"));
 app.use("/pins", require("./api/pin"));
 app.use("/participants", require("./api/participant"));
+app.use("/officers", require("./api/officer"));
 
 app.use((err, _req, res, _next) => {
 	res.status(500).json({ error: "Internal Server Error", details: err });

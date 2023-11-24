@@ -10,12 +10,12 @@ const officerSchema = Schema(
 		status: {
 			type: String,
 			enum: ["Steady", "Down"],
-			deafult: "Steady",
+			default: "Steady",
 		},
 		pinsToView: [
 			{
 				type: Schema.Types.ObjectId,
-				ref: Pin,
+				ref: "Pin",
 			},
 		],
 		pin: {
