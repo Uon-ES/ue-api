@@ -6,6 +6,7 @@ const adminSchema = Joi.object({
 	email: Joi.string(),
 	password: Joi.string(),
 	phoneNumber: Joi.string(),
+	status: Joi.string().valid("Enabled", "Disabled"),
 });
 
 const validateAdmin = (body) => {
