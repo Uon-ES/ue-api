@@ -20,8 +20,7 @@ const createPin = async (req, res) => {
 
 const getPins = async (req, res) => {
 	try {
-		const query = req.query;
-		const pins = await repo.findAll(query);
+		const pins = await Pin.find(req.query).populate("user");
 		res.json(pins);
 	} catch (err) {
 		res.status(500).send(err.message);

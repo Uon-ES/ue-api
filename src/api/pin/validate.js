@@ -8,6 +8,7 @@ const pinSchema = Joi.object({
 	link: Joi.string(),
 	type: Joi.string().valid("Temporary", "Permanent"),
 	user: Joi.string(),
+	userType: Joi.string().valid("Officer", "Participant"),
 });
 
 const validatePin = (body) => {

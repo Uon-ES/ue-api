@@ -14,7 +14,11 @@ const pinSchema = new Schema(
 		},
 		user: {
 			type: Schema.Types.ObjectId,
-			ref: "User",
+			refPath: "userType",
+		},
+		userType: {
+			type: String,
+			enum: ["Participant", "Officer"],
 		},
 	},
 	{
