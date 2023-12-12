@@ -21,6 +21,7 @@ app.use("/participants", require("./api/participant"));
 app.use("/officers", require("./api/officer"));
 app.use("/admins", require("./api/admin"));
 app.use("/pins", require("./api/pin"));
+app.use("/text", require("./api/text"));
 
 app.use((err, _req, res, _next) => {
 	res.status(500).json({ error: "Internal Server Error", details: err });
