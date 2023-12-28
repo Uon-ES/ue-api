@@ -1,3 +1,4 @@
+const { sign } = require("jsonwebtoken");
 const participantRepo = require("./repository");
 const { validateParticipant } = require("./validate");
 
@@ -70,9 +71,33 @@ const deleteParticipantById = async (req, res) => {
 	}
 };
 
+const handleDeeplink = async (req, res) => {
+	try {
+		const { id } = req.body;
+
+		const participant = await participantRepo.findById(id);
+		if (!participant) {
+			return res.status(404).json("Participant not found.");
+		}
+
+		const token = sign(
+			{ email: participant.email },
+			process.env.ACCESS_TOKEN_SECRET,
+			{
+				expiresIn: "1h",
+			}
+		);
+
+		res.json(`/login?token=${token}`);
+	} catch (err) {
+		res.status(500).json(err.message);
+	}
+};
+
 module.exports = {
 	createParticipant,
 	getParticipants,
 	updateParticipantById,
 	deleteParticipantById,
+	handleDeeplink,
 };

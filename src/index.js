@@ -15,7 +15,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/", require("./api/health"));
+app.use("/health", require("./api/health"));
 app.use("/auth", require("./api/auth"));
 app.use("/participants", require("./api/participant"));
 app.use("/officers", require("./api/officer"));
