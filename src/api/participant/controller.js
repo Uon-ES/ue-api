@@ -81,14 +81,14 @@ const handleDeeplink = async (req, res) => {
 		}
 
 		const token = sign(
-			{ email: participant.email },
+			{ id: participant._id },
 			process.env.ACCESS_TOKEN_SECRET,
 			{
 				expiresIn: "1h",
 			}
 		);
 
-		res.json(`/login?token=${token}`);
+		res.json({ token });
 	} catch (err) {
 		res.status(500).json(err.message);
 	}
