@@ -33,6 +33,20 @@ const getParticipants = async (req, res) => {
 	}
 };
 
+const getParticipantById = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const participant = await participantRepo.findById(id);
+		if (!participant) {
+			return res.status(404).json("Participant not found.");
+		}
+
+		res.json(participant);
+	} catch (err) {
+		res.status(500).json(err.message);
+	}
+};
+
 const updateParticipantById = async (req, res) => {
 	try {
 		const { error } = validateParticipant(req.body);
@@ -73,7 +87,7 @@ const deleteParticipantById = async (req, res) => {
 
 const handleDeeplink = async (req, res) => {
 	try {
-		const { id } = req.body;
+		const { id } = req.query;
 
 		const participant = await participantRepo.findById(id);
 		if (!participant) {
@@ -97,6 +111,7 @@ const handleDeeplink = async (req, res) => {
 module.exports = {
 	createParticipant,
 	getParticipants,
+	getParticipantById,
 	updateParticipantById,
 	deleteParticipantById,
 	handleDeeplink,
